@@ -1,0 +1,13 @@
+# service1-service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: service1-service
+spec:
+  selector:
+    app: service1
+  type: NodePort
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5000

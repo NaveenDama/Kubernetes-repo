@@ -1,0 +1,25 @@
+# service2-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: service2-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: service2
+  template:
+    metadata:
+      labels:
+        app: service2
+    spec:
+      containers:
+        - name: service2
+          image: naveendama/python-microservice2:0.0.1.RELEASE
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 5000
+          resources:
+            limits:
+              cpu: "0.2"
+              memory: "256Mi"
